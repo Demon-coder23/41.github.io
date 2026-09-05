@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>41-е Элитное Подразделение — Ходатайство о звании</title>
-<meta name="description" content="Портал 41-го подразделения: подача ходатайства о присвоении звания командованию.">
+<title> 41-й Элитный Разведывательный Корпус</title>
+<meta name="description" content="Портал 41-го подразделения">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Roboto+Condensed:wght@400;500;700&display=swap">
@@ -39,18 +39,16 @@
   .header-inner{
     max-width:960px;
     margin:0 auto;
-    padding:16px 24px;
+    padding:12px 24px;
     display:flex;
     align-items:center;
     gap:16px;
   }
   .crest{
-    width:44px;
-    height:44px;
+    width:52px;
+    height:52px;
     flex-shrink:0;
-    border-radius:50%;
-    background:conic-gradient(var(--olive-mid) 0turn 0.5turn, var(--olive-deep) 0.5turn 1turn);
-    border:2px solid var(--olive-deep);
+    object-fit:contain;
   }
   .header-text h1{
     font-family:var(--font-display);
@@ -68,12 +66,14 @@
     text-transform:uppercase;
   }
   .banner{
-    background:linear-gradient(180deg, var(--olive-soft), var(--olive-pale));
+    position:relative;
+    background:#dfe6ce url("banner-41.png") left bottom / auto 100% no-repeat;
     border-bottom:1px solid var(--line);
     display:flex;
-    align-items:center;
+    align-items:flex-end;
     justify-content:flex-end;
     padding:14px 24px;
+    min-height:170px;
   }
   .badge{
     font-family:var(--font-display);
@@ -247,10 +247,10 @@
 
 <header>
   <div class="header-inner">
-    <div class="crest" aria-hidden="true"></div>
+    <img class="crest" src="logo-41.png" alt="Эмблема 41-го подразделения">
     <div class="header-text">
       <h1>41-е Элитное Подразделение</h1>
-      <p>Ходатайство о присвоении звания</p>
+      <p>Портал служебных рапортов</p>
     </div>
   </div>
 </header>
