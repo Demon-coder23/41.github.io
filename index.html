@@ -1,1 +1,438 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>41-е Элитное Подразделение — Ходатайство о звании</title>
+<meta name="description" content="Портал 41-го подразделения: подача ходатайства о присвоении звания командованию.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Roboto+Condensed:wght@400;500;700&display=swap">
+<style>
+  :root{
+    --olive-deep:#33402c;
+    --olive-mid:#5b6f47;
+    --olive-soft:#c8d3b2;
+    --olive-pale:#f4f6ef;
+    --paper:#ffffff;
+    --ink:#293225;
+    --ink-soft:#5f6b53;
+    --line:#d7ddc7;
+    --danger:#8a3b2b;
+    --font-display:"Oswald",sans-serif;
+    --font-sans:"Roboto Condensed",sans-serif;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:var(--font-sans);
+    background:var(--olive-pale);
+    color:var(--ink);
+  }
+  header{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:var(--paper);
+    border-bottom:2px solid var(--olive-deep);
+  }
+  .header-inner{
+    max-width:960px;
+    margin:0 auto;
+    padding:16px 24px;
+    display:flex;
+    align-items:center;
+    gap:16px;
+  }
+  .crest{
+    width:44px;
+    height:44px;
+    flex-shrink:0;
+    border-radius:50%;
+    background:conic-gradient(var(--olive-mid) 0turn 0.5turn, var(--olive-deep) 0.5turn 1turn);
+    border:2px solid var(--olive-deep);
+  }
+  .header-text h1{
+    font-family:var(--font-display);
+    font-size:1.15rem;
+    letter-spacing:0.04em;
+    margin:0;
+    color:var(--olive-deep);
+    text-transform:uppercase;
+  }
+  .header-text p{
+    margin:2px 0 0;
+    font-size:0.72rem;
+    letter-spacing:0.08em;
+    color:var(--ink-soft);
+    text-transform:uppercase;
+  }
+  .banner{
+    background:linear-gradient(180deg, var(--olive-soft), var(--olive-pale));
+    border-bottom:1px solid var(--line);
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+    padding:14px 24px;
+  }
+  .badge{
+    font-family:var(--font-display);
+    font-size:0.72rem;
+    letter-spacing:0.08em;
+    background:var(--paper);
+    border:1px solid var(--olive-deep);
+    color:var(--olive-deep);
+    padding:6px 14px;
+    text-transform:uppercase;
+  }
+  main{
+    max-width:640px;
+    margin:0 auto;
+    padding:40px 20px 80px;
+  }
+  .panel{
+    background:var(--paper);
+    border:1px solid var(--line);
+    box-shadow:0 18px 45px -28px rgba(41,50,37,0.45);
+    position:relative;
+    z-index:1;
+  }
+  .type-select{
+    padding:20px 28px 0;
+  }
+  .type-select label{
+    display:block;
+    font-family:var(--font-display);
+    font-size:0.78rem;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    margin-bottom:8px;
+    color:var(--ink);
+  }
+  .type-select select{
+    width:100%;
+    font-family:var(--font-sans);
+    font-size:0.92rem;
+    padding:10px 12px;
+    border:1px solid var(--olive-deep);
+    background:var(--olive-pale);
+    color:var(--ink);
+    border-radius:2px;
+    outline:none;
+  }
+  .type-select select:focus{
+    border-color:var(--olive-mid);
+    background:var(--paper);
+  }
+  .type-hint{
+    margin:8px 0 4px;
+    font-size:0.78rem;
+    color:var(--ink-soft);
+  }
+  .panel-head{
+    padding:24px 28px 18px;
+    border-bottom:1px solid var(--line);
+  }
+  .panel-head h2{
+    font-family:var(--font-display);
+    font-size:1.3rem;
+    margin:0 0 6px;
+    color:var(--olive-deep);
+  }
+  .panel-head p{
+    margin:0;
+    font-size:0.88rem;
+    color:var(--ink-soft);
+  }
+  form{
+    padding:24px 28px 28px;
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+  }
+  .field label{
+    display:block;
+    font-size:0.82rem;
+    font-weight:700;
+    margin-bottom:6px;
+    color:var(--ink);
+  }
+  .field label .req{
+    color:var(--danger);
+    margin-left:2px;
+  }
+  .field input,
+  .field textarea,
+  .field select{
+    width:100%;
+    font-family:var(--font-sans);
+    font-size:0.92rem;
+    padding:10px 12px;
+    border:1px solid var(--line);
+    background:var(--olive-pale);
+    color:var(--ink);
+    border-radius:2px;
+    outline:none;
+    transition:border-color .15s, background .15s;
+  }
+  .field input:focus,
+  .field textarea:focus,
+  .field select:focus{
+    border-color:var(--olive-mid);
+    background:var(--paper);
+  }
+  .field textarea{
+    min-height:96px;
+    resize:vertical;
+  }
+  .actions{
+    display:flex;
+    gap:12px;
+    margin-top:6px;
+  }
+  button{
+    font-family:var(--font-display);
+    font-size:0.85rem;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    padding:12px 18px;
+    border:1px solid var(--olive-deep);
+    cursor:pointer;
+    transition:opacity .15s, transform .05s;
+  }
+  button:active{ transform:translateY(1px); }
+  button[type="submit"]{
+    flex:1;
+    background:var(--olive-deep);
+    color:#fff;
+  }
+  button[type="submit"]:disabled{
+    opacity:0.55;
+    cursor:default;
+  }
+  button[type="reset"]{
+    background:transparent;
+    color:var(--olive-deep);
+  }
+  .status{
+    margin:0 28px 24px;
+    padding:12px 14px;
+    border:1px solid var(--line);
+    background:var(--olive-pale);
+    font-size:0.85rem;
+    color:var(--ink-soft);
+  }
+  .status.ok{
+    border-color:var(--olive-mid);
+    color:var(--olive-deep);
+    background:#eef2e6;
+  }
+  .status.err{
+    border-color:var(--danger);
+    color:var(--danger);
+    background:#f7ece9;
+  }
+  footer{
+    text-align:center;
+    padding:18px;
+    font-size:0.72rem;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+    text-transform:uppercase;
+    border-top:1px solid var(--line);
+  }
+</style>
+</head>
+<body>
 
+<header>
+  <div class="header-inner">
+    <div class="crest" aria-hidden="true"></div>
+    <div class="header-text">
+      <h1>41-е Элитное Подразделение</h1>
+      <p>Ходатайство о присвоении звания</p>
+    </div>
+  </div>
+</header>
+
+<div class="banner">
+  <span class="badge">Защищённый канал связи</span>
+</div>
+
+<main>
+  <div class="panel">
+    <div class="panel-head">
+      <h2 id="panel-title">Рапорт о изменении звания</h2>
+      <p>На случай отказа Google Forms. Данные уходят напрямую командованию.</p>
+    </div>
+
+    <div class="type-select">
+      <label for="report-type-select">Выберите тип рапорта</label>
+      <select id="report-type-select">
+        <option value="rank">[1] Рапорт о изменении звания</option>
+        <option value="leave">[2] Форма запроса на Отпуск</option>
+        <option value="training">[3] Рапорт о проведении тренировки</option>
+        <option value="combat">[4] Боевой доклад</option>
+      </select>
+      <p class="type-hint" id="type-hint"></p>
+    </div>
+
+    <form id="rank-form">
+      <div class="field">
+        <label for="who">Докладывает<span class="req">*</span></label>
+        <input id="who" name="who" type="text" placeholder="Номер | Позывной | Звание" required>
+      </div>
+
+      <div class="field">
+        <label for="reportType">Тип рапорта<span class="req">*</span></label>
+        <input id="reportType" name="reportType" type="text" placeholder="Вступление в МК" required>
+      </div>
+
+      <div class="field">
+        <label for="target">Н | П бойца<span class="req">*</span></label>
+        <input id="target" name="target" type="text" placeholder="Номер | Позывной" required>
+      </div>
+
+      <div class="field">
+        <label for="oldRank">Старое звание<span class="req">*</span></label>
+        <input id="oldRank" name="oldRank" type="text" placeholder="Кадет" required>
+      </div>
+
+      <div class="field">
+        <label for="newRank">Новое звание<span class="req">*</span></label>
+        <input id="newRank" name="newRank" type="text" placeholder="Советник" required>
+      </div>
+
+      <div class="field">
+        <label for="why">Причина вступления</label>
+        <textarea id="why" name="why" placeholder="..."></textarea>
+      </div>
+
+      <div class="field">
+        <label for="steamId">SteamID<span class="req">*</span></label>
+        <input id="steamId" name="steamId" type="text" placeholder="765611980xxxxxxxx" required>
+      </div>
+
+      <div class="field">
+        <label for="reportDate">Дата рапорта<span class="req">*</span></label>
+        <input id="reportDate" name="reportDate" type="date" required>
+      </div>
+
+      <div class="actions">
+        <button type="submit" id="submit-btn">Отправить рапорт</button>
+        <button type="reset" id="reset-btn">Сбросить</button>
+      </div>
+    </form>
+
+    <div class="status" id="status">Канал открыт. Заполните данные рапорта.</div>
+  </div>
+</main>
+
+<footer>41-е Элитное Подразделение</footer>
+
+<script>
+  // Replace with your own webhook URL before publishing if this one is rotated.
+  const WEBHOOK_URL = "https://discord.com/api/webhooks/1544801255367639110/05lax2LQaEg963LQzMdBnaxXKZOam3jsxD2uCGe2o7F2u8ujfPjEfGd7gK-sf6k1lt4M";
+
+  const form = document.getElementById("rank-form");
+  const statusEl = document.getElementById("status");
+  const submitBtn = document.getElementById("submit-btn");
+  const typeSelect = document.getElementById("report-type-select");
+  const typeHint = document.getElementById("type-hint");
+  const panelTitle = document.getElementById("panel-title");
+
+  // Default report date to today for convenience.
+  document.getElementById("reportDate").valueAsDate = new Date();
+
+  function setStatus(text, kind) {
+    statusEl.textContent = text;
+    statusEl.className = "status" + (kind ? " " + kind : "");
+  }
+
+  function syncTypeAvailability() {
+    const isRank = typeSelect.value === "rank";
+    form.style.display = isRank ? "flex" : "none";
+    statusEl.style.display = isRank ? "block" : "none";
+    if (isRank) {
+      panelTitle.textContent = "Рапорт о изменении звания";
+      typeHint.textContent = "";
+    } else {
+      const labels = {
+        leave: "Форма запроса на Отпуск",
+        training: "Рапорт о проведении тренировки",
+        combat: "Боевой доклад"
+      };
+      panelTitle.textContent = labels[typeSelect.value] || "";
+      typeHint.textContent = "Этот тип рапорта пока в разработке. Доступен только «Рапорт о изменении звания».";
+    }
+  }
+  typeSelect.addEventListener("change", syncTypeAvailability);
+  syncTypeAvailability();
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+    const who = data.get("who")?.trim();
+    const reportType = data.get("reportType")?.trim();
+    const target = data.get("target")?.trim();
+    const oldRank = data.get("oldRank")?.trim();
+    const newRank = data.get("newRank")?.trim();
+    const why = data.get("why")?.trim() || "—";
+    const steamId = data.get("steamId")?.trim();
+    const reportDate = data.get("reportDate");
+
+    if (!who || !reportType || !target || !oldRank || !newRank || !steamId || !reportDate) {
+      setStatus("Заполните обязательные поля рапорта.", "err");
+      return;
+    }
+
+    submitBtn.disabled = true;
+    setStatus("Передача рапорта в штаб...");
+
+    const payload = {
+      embeds: [
+        {
+          title: "Рапорт о изменении звания",
+          description:
+            "Рапорт о изменении звания\n" +
+            "Докладывает:\n[" + who + "]\n\n" +
+            "Тип рапорта:\n[" + reportType + "]\n\n" +
+            "Н | П бойца:\n[" + target + "]\n\n" +
+            "Старое звание -> Новое звание\n[" + oldRank + "] -> [" + newRank + "]\n\n" +
+            "Причина вступления:\n[" + why + "]\n\n" +
+            "SteamID:\n[" + steamId + "]\n\n" +
+            "Дата рапорта:\n[" + reportDate + "]",
+          color: 0x5b6f47,
+          timestamp: new Date().toISOString()
+        }
+      ]
+    };
+
+    try {
+      const res = await fetch(WEBHOOK_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+
+      if (res.ok || res.status === 204) {
+        setStatus("Рапорт передан в штаб 41-го подразделения. Ожидайте ответа командования.", "ok");
+        form.reset();
+        document.getElementById("reportDate").valueAsDate = new Date();
+      } else {
+        setStatus("Штаб не принял рапорт (код " + res.status + "). Попробуйте ещё раз.", "err");
+      }
+    } catch (err) {
+      setStatus("Канал связи недоступен. Проверьте соединение и повторите попытку.", "err");
+    } finally {
+      submitBtn.disabled = false;
+    }
+  });
+
+  form.addEventListener("reset", () => {
+    setStatus("Форма очищена. Канал открыт.");
+  });
+</script>
+
+</body>
+</html>
