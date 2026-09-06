@@ -275,16 +275,7 @@
       <p>На случай отказа Google Forms. Данные уходят напрямую командованию.</p>
     </div>
 
-    <div class="type-select">
-      <label for="report-type-select">Выберите тип рапорта</label>
-      <select id="report-type-select">
-        <option value="rank">[1] Рапорт о изменении звания</option>
-        <option value="leave">[2] Форма запроса на Отпуск</option>
-        <option value="training">[3] Рапорт о проведении тренировки</option>
-        <option value="combat">[4] Боевой доклад</option>
-      </select>
-      <p class="type-hint" id="type-hint"></p>
-    </div>
+
 
     <form id="rank-form">
       <div class="field">
@@ -341,9 +332,7 @@
   const form = document.getElementById("rank-form");
   const statusEl = document.getElementById("status");
   const submitBtn = document.getElementById("submit-btn");
-  const typeSelect = document.getElementById("report-type-select");
-  const typeHint = document.getElementById("type-hint");
-  const panelTitle = document.getElementById("panel-title");
+
 
   // Default report date to today for convenience.
   document.getElementById("reportDate").valueAsDate = new Date();
@@ -353,25 +342,7 @@
     statusEl.className = "status" + (kind ? " " + kind : "");
   }
 
-  function syncTypeAvailability() {
-    const isRank = typeSelect.value === "rank";
-    form.style.display = isRank ? "flex" : "none";
-    statusEl.style.display = isRank ? "block" : "none";
-    if (isRank) {
-      panelTitle.textContent = "Рапорт о изменении звания";
-      typeHint.textContent = "";
-    } else {
-      const labels = {
-        leave: "Форма запроса на Отпуск",
-        training: "Рапорт о проведении тренировки",
-        combat: "Боевой доклад"
-      };
-      panelTitle.textContent = labels[typeSelect.value] || "";
-      typeHint.textContent = "Этот тип рапорта пока в разработке. Доступен только «Рапорт о изменении звания».";
-    }
-  }
-  typeSelect.addEventListener("change", syncTypeAvailability);
-  syncTypeAvailability();
+
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
