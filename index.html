@@ -288,7 +288,7 @@
 
     <form id="rank-form">
       <div class="field">
-        <label for="who">Докладывает<span class="req">*</span></label>
+        <label for="who">Под докладывает<span class="req">*</span></label>
         <input id="who" name="who" type="text" placeholder="Номер | Позывной | Звание" required>
       </div>
 
@@ -310,11 +310,6 @@
       <div class="field">
         <label for="newRank">Новое звание<span class="req">*</span></label>
         <input id="newRank" name="newRank" type="text" placeholder="Рядовой-рекрут" required>
-      </div>
-
-      <div class="field">
-       <label for="target">Причина<span class="req">*</span></label>
-        <textarea id="why" name="why" placeholder="..."></textarea>
       </div>
 
       <div class="field">
@@ -386,7 +381,6 @@
     const target = data.get("target")?.trim();
     const oldRank = data.get("oldRank")?.trim();
     const newRank = data.get("newRank")?.trim();
-    const why = data.get("why")?.trim() || "—";
     const steamId = data.get("steamId")?.trim();
     const reportDate = data.get("reportDate");
 
@@ -408,7 +402,6 @@
             "Тип рапорта:\n[" + reportType + "]\n\n" +
             "Н | П бойца:\n[" + target + "]\n\n" +
             "Старое звание -> Новое звание\n[" + oldRank + "] -> [" + newRank + "]\n\n" +
-            "Причина вступления:\n[" + why + "]\n\n" +
             "SteamID:\n[" + steamId + "]\n\n" +
             "Дата рапорта:\n[" + reportDate + "]",
           color: 0x5b6f47,
