@@ -279,8 +279,13 @@
 
     <form id="rank-form">
       <div class="field">
-        <label for="who">Под докладывает<span class="req">*</span></label>
+        <label for="who">Докладывает<span class="req">*</span></label>
         <input id="who" name="who" type="text" placeholder="Номер | Позывной | Звание" required>
+      </div>
+
+      <div class="field">
+        <label for="issuedBy">Кто выдал форму<span class="req">*</span></label>
+        <input id="issuedBy" name="issuedBy" type="text" placeholder="Номер | Позывной | Звание" required>
       </div>
 
       <div class="field">
@@ -352,10 +357,11 @@
     const target = data.get("target")?.trim();
     const oldRank = data.get("oldRank")?.trim();
     const newRank = data.get("newRank")?.trim();
+    const issuedBy = data.get("issuedBy")?.trim();
     const steamId = data.get("steamId")?.trim();
     const reportDate = data.get("reportDate");
 
-    if (!who || !reportType || !target || !oldRank || !newRank || !steamId || !reportDate) {
+    if (!who || !issuedBy || !reportType || !target || !oldRank || !newRank || !steamId || !reportDate) {
       setStatus("Заполните обязательные поля рапорта.", "err");
       return;
     }
@@ -370,6 +376,7 @@
           description:
             "Рапорт о изменении звания\n" +
             "Докладывает:\n[" + who + "]\n\n" +
+            "Кто выдал форму:\n[" + issuedBy + "]\n\n" +
             "Тип рапорта:\n[" + reportType + "]\n\n" +
             "Н | П бойца:\n[" + target + "]\n\n" +
             "Старое звание -> Новое звание\n[" + oldRank + "] -> [" + newRank + "]\n\n" +
